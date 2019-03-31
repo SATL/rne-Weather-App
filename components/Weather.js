@@ -4,7 +4,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {weatherConditions} from "../utils/WeatherConditions";
 import PropTypes from 'prop-types';
 
-const Weather = ({ weather, temperature }) => {
+const Weather = ({ weather, temperature, address }) => {
     return (
         <View
             style={[
@@ -19,6 +19,9 @@ const Weather = ({ weather, temperature }) => {
                     color={'#fff'}
                 />
                 <Text style={styles.tempText}>{temperature}˚</Text>
+                <Text style={styles.address}>
+                    {address}
+                </Text>
             </View>
             <View style={styles.bodyContainer}>
                 <Text style={styles.title}>{weatherConditions[weather].title}</Text>
@@ -63,6 +66,11 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 24,
         color: '#ffffff'
+    },
+    address:{
+        textAlign: 'center',
+        fontSize:20,
+        color:"#ffffff"
     }
 });
 
